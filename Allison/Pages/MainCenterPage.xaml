@@ -1,0 +1,209 @@
+﻿<Page
+    x:Class="Allison.Pages.MainCenterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Allison.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="MenuButtonStyle">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}" />
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="CornerRadius" Value="10,10,10,10"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid" CornerRadius="{TemplateBinding CornerRadius}"
+                          Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid"
+                                                     Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
+                                            </ObjectAnimationUsingKeyFrames>
+
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Gray" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid"
+                                                     Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="DimGray" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid"
+                                                     Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="LightGray" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                     Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Content="{TemplateBinding Content}"
+                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            AutomationProperties.AccessibilityView="Raw"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Popup x:Name="MenuPopup" 
+               Margin="40,0,0,0"
+               Height="50"
+               Width="220"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top">
+                <Popup.ChildTransitions>
+                    <TransitionCollection>
+                        <EdgeUIThemeTransition Edge="Top"/>
+                    </TransitionCollection>
+                </Popup.ChildTransitions>
+                <StackPanel Orientation="Horizontal"
+                        BorderThickness="0"
+                        Background="White">
+                    <Button x:Name="Homebutton"
+                        Height="40"
+                        Margin="7,3,7,7"
+                        Click="Homebutton_Click"
+                        Foreground="DarkGray"
+                        Background="White"
+                        ToolTipService.ToolTip="Home"
+                        ToolTipService.Placement="Bottom"
+                        PointerEntered="Homebutton_PointerEntered"
+                        PointerExited="Homebutton_PointerExited"
+                        Style="{ThemeResource MenuButtonStyle}">
+                        <BitmapIcon UriSource="/Assets/Icons/home.png" Height="20"/>
+                    </Button>
+                    <Button x:Name="Messagebutton"
+                        Height="40"
+                        Margin="7,3,7,7"
+                        Click="Messagebutton_Click"
+                        Foreground="DarkGray"
+                        ToolTipService.ToolTip="Message"
+                        ToolTipService.Placement="Bottom"
+                        Background="White"
+                        PointerEntered="Messagebutton_PointerEntered"
+                        PointerExited="Messagebutton_PointerExited"
+                        Style="{ThemeResource MenuButtonStyle}">
+                        <BitmapIcon UriSource="/Assets/Icons/chatting.png" Height="20"/>
+                    </Button>
+                    <Button x:Name="Settingbutton"
+                        Height="40"
+                        Margin="7,3,7,7"
+                        Click="Settingbutton_Click"
+                        Foreground="DarkGray"
+                        Background="White"
+                        ToolTipService.ToolTip="Settings"
+                        ToolTipService.Placement="Bottom"
+                        PointerEntered="Settingbutton_PointerEntered"
+                        PointerExited="Settingbutton_PointerExited"
+                        Style="{ThemeResource MenuButtonStyle}">
+                        <BitmapIcon UriSource="/Assets/Icons/gear.png" Height="20"/>
+                    </Button>
+                    <Button x:Name="Aboutbutton"
+                        Height="40"
+                        Margin="7,3,7,7"
+                        Foreground="DarkGray"
+                        Background="White"
+                        Click="Aboutbutton_Click"
+                        ToolTipService.ToolTip="About"
+                        ToolTipService.Placement="Bottom"
+                        PointerEntered="Aboutbutton_PointerEntered"
+                        PointerExited="Aboutbutton_PointerExited"
+                        Style="{ThemeResource MenuButtonStyle}">
+                        <BitmapIcon UriSource="/Assets/Icons/About.png" Height="20"/>
+                    </Button>
+                </StackPanel>
+            </Popup>
+            <Button Style="{ThemeResource MenuButtonStyle}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        x:Name="MenuButton"
+                        Height="50"
+                        Width="50"
+                        Click="MenuButton_Click"
+                        ToolTipService.ToolTip="Open Menu"
+                        ToolTipService.Placement="Right"
+                        PointerEntered="MenuButton_PointerEntered"
+                        PointerExited="MenuButton_PointerExited"
+                        Foreground="DarkGray"
+                        RenderTransformOrigin="0.5,0.5"
+                        Background="White">
+                <Button.Content>
+                    <BitmapIcon UriSource="/Assets/Icons/Menu.png"
+                                    Height="20"
+                                    Width="20"/>
+                </Button.Content>
+                <Button.RenderTransform>
+                    <RotateTransform x:Name="MenuButtonRotate"/>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame x:Name="PageChangingGridFrame"></Frame>
+        </Grid>
+    </Grid>
+</Page>

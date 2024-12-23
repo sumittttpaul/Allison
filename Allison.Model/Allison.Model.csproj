@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210118143818_AllisonChatData.cs" />
+    <Compile Remove="Migrations\20210118143818_AllisonChatData.Designer.cs" />
+    <Compile Remove="Migrations\20210125121522_DBContext.cs" />
+    <Compile Remove="Migrations\20210125121522_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\20210125140406_DBContext.cs" />
+    <Compile Remove="Migrations\20210125140406_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\20210125144436_DBContext.cs" />
+    <Compile Remove="Migrations\20210125144436_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\20210125145927_DBContext.cs" />
+    <Compile Remove="Migrations\20210125145927_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\20210131051504_DBContext.cs" />
+    <Compile Remove="Migrations\20210131051504_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\20210131072942_DBContext.cs" />
+    <Compile Remove="Migrations\20210131072942_DBContext.Designer.cs" />
+    <Compile Remove="Migrations\Option\20210205143212_OptionDbCreate.cs" />
+    <Compile Remove="Migrations\Option\20210205143212_OptionDbCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\Option\" />
+  </ItemGroup>
+
+</Project>
