@@ -41,4 +41,4 @@ These are all the functionalities that has been implemented in this project :-
 
 ## Components Used
 
-All the components - You can find in MessageTemplates, CustomControls folder.
+All the components - You can find in MessageTemplates and CustomControls folder.
