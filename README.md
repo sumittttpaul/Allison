@@ -15,7 +15,7 @@ Allison contains following sections :-
 These are all the framework and libraries that has been used to build this project :-
 
 ```bash
-1. Universal Windows Platform (UWP)
+1. UWP App (Universal Windows Platform)
 2. C#
 3. Javascript
 4. XAML
