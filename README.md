@@ -1,3 +1,5 @@
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://www.youtube.com/watch?v=tWdmMSgJcY8)
+
 Hello, I am Sumeet Kumar Paul and here is AI Assistant Allison, so let's get started.
 
 ## Getting Started
