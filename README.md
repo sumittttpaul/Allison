@@ -1,3 +1,5 @@
+![allison](https://github.com/user-attachments/assets/8634adcc-81ee-4b58-8cad-72851d2ec33b)
+
 Hello, I am Sumeet Kumar Paul and here is AI Assistant Allison, so let's get started.
 
 Watch the video to learn about all the features of this project: [video/allison](https://www.youtube.com/watch?v=tWdmMSgJcY8)
